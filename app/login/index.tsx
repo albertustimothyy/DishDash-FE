@@ -1,87 +1,49 @@
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView } from "react-native-safe-area-context";
 import React, { useState } from "react";
 import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TextInput,
-  Button,
-  TouchableOpacity,
+ Text,
+ View,
+ Image,
+ TextInput,
+ TouchableOpacity,
 } from "react-native";
-import { Link } from "expo-router";
+import LoginComponent from "../../components/LoginComponent";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={require("../../assets/log2.png")} /> 
-      <StatusBar style="auto" />
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Email."
-          placeholderTextColor="#003f5c"
-          onChangeText={(email) => setEmail(email)}
-        /> 
-      </View> 
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Password."
-          placeholderTextColor="#003f5c"
-          secureTextEntry={true}
-          onChangeText={(password) => setPassword(password)}
-        /> 
-      </View> 
-      <TouchableOpacity>
-        <Text style={styles.forgot_button}>Forgot Password?</Text> 
-          </TouchableOpacity> 
-          <Link href="/dashboard/" asChild>
-            <TouchableOpacity style={styles.loginBtn}>
-                <Text>LOGIN</Text> 
-            </TouchableOpacity> 
-          </Link>
-    </View> 
-  );
+ const [activeTab, setActiveTab] = useState("login");
+
+ const switchToLogin = () => setActiveTab("login");
+ const switchToSignup = () => setActiveTab("signup");
+ return (
+   <View className="flex items-center justify-center bg-[#f2f2f2]">
+     <View className="top-0 w-full h-64 items-center justify-center bg-white rounded-b-[30px]">
+       <Image className="" source={require("../../assets/log2.png")} />
+       <View className="absolute bottom-0 flex flex-row space-x-16">
+         <TouchableOpacity
+           className={`flex items-center w-28 p-1 ${
+             activeTab === "login" && "border-b-4 border-[#FFC83A]"}`}
+           onPress={switchToLogin}
+         >
+           <Text className={`text-base font-bold ${
+             activeTab === "login" ? "text-black" : "text-[#ababab]"
+           }`}>Login</Text>
+         </TouchableOpacity>
+         <TouchableOpacity
+           className={`flex items-center w-28 p-1 ${
+             activeTab === "signup" && "border-b-4 border-[#FFC83A]"}`}
+           onPress={switchToSignup}
+         >
+           <Text className={`text-base font-bold ${
+             activeTab === "signup" ? "text-black" : "text-[#ababab]"
+           }`}>Sign-Up</Text>
+         </TouchableOpacity>
+       </View>
+     </View>
+
+     <StatusBar style="auto" />
+     {activeTab === "login" && (
+       <LoginComponent />
+     )}
+   </View> 
+ );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  image: {
-    marginBottom: 40,
-  },
-  inputView: {
-    backgroundColor: "#FAFAFA",
-    borderRadius: 30,
-    width: "70%",
-    height: 45,
-    marginBottom: 20,
-    alignItems: "center",
-  },
-  TextInput: {
-    height: 50,
-    flex: 1,
-    padding: 10,
-    marginLeft: 20,
-  },
-  forgot_button: {
-    height: 30,
-    marginBottom: 30,
-  },
-  loginBtn: {
-    width: "80%",
-    borderRadius: 25,
-    height: 50,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 40,
-    backgroundColor: "#FF9431",
-  },
-});     

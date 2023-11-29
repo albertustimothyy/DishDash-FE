@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { ScrollView, TouchableOpacity, View, Text, Image } from "react-native";
 
+interface Category {
+  id: number;
+  name: string;
+  image: any;
+}
+
 const categories = [
   {
     id: 1,
@@ -64,9 +70,13 @@ const categories = [
   },
 ];
 
-
 export default function Categories() {
-  const [activeCategory, setActiveCategory] = useState(Number);
+  const [activeCategory, setActiveCategory] = useState<number | null>(null);
+
+  const toggleCategory = (categoryId: number) => {
+    // If the same category is clicked again, deactivate it and reset the activeCategory state to null
+    setActiveCategory(activeCategory === categoryId ? null : categoryId);
+  };
 
   return (
     <View className="mt-4">
@@ -78,24 +88,23 @@ export default function Categories() {
           paddingHorizontal: 15,
         }}
       >
-        {categories.map((category, index) => {
-          let isActive = category.id == activeCategory;
-          let btnClass = isActive ? " bg-[#ff9431]" : " bg-white";
-          let textClass = isActive
-            ? " text-white"
-            : " text-black";
+        {categories.map((category) => {
+          const isActive = category.id === activeCategory;
+          const btnClass = isActive ? "bg-[#ff9431]" : "bg-white";
+          const textClass = isActive ? "text-white" : "text-black";
 
           return (
             <TouchableOpacity
-              key={index}
-              onPress={() => setActiveCategory(category.id)}
-              className={"flex flex-row justify-center items-center mr-6 p-2 pr-4 border-2 rounded-xl border-[#ff9431] space-x-3" + btnClass}>
-                <Image
-                  style={{ width: 30, height: 30 }}
-                  source={category.image}
-                  className="rounded-3xl bg-white"
-                />
-              <Text className={"text-base font-bold" + textClass}>{category.name}</Text>
+              key={category.id}
+              onPress={() => toggleCategory(category.id)}
+              className={`flex flex-row justify-center items-center mr-6 p-2 pr-4 border-2 rounded-xl border-[#ff9431] space-x-3 ${btnClass}`}
+            >
+              <Image
+                style={{ width: 30, height: 30 }}
+                source={category.image}
+                className="bg-white rounded-3xl"
+              />
+              <Text className={`text-base font-bold ${textClass}`}>{category.name}</Text>
             </TouchableOpacity>
           );
         })}

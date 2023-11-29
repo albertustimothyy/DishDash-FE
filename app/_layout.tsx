@@ -6,10 +6,13 @@ export default function _layout() {
   return (
       <Stack>
           <Stack.Screen name="login/index" options={{
-              title: 'Login'
+              title: 'Login',
+              navigationBarHidden: true,
+              headerShown: false,
           }} />
           <Stack.Screen name="dashboard/index" options={{
-              title: 'Dashboard'
+              title: 'Dashboard',
+              headerShown: false,
           }} />
       </Stack>
   )

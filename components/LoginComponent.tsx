@@ -12,7 +12,6 @@ export default function LoginComponent() {
        <TextInput
          className="h-50 flex-1 items-center"
          placeholder="Enter Your Email"
-         placeholderTextColor="#003f5c"
          onChangeText={(email) => setEmail(email)}
        /> 
      </View> 
@@ -21,7 +20,6 @@ export default function LoginComponent() {
        <TextInput
          className="h-50 flex-1 items-center"
          placeholder="Enter Your Password"
-         placeholderTextColor="#003f5c"
          secureTextEntry={true}
          onChangeText={(password) => setPassword(password)}
        /> 

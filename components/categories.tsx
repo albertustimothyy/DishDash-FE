@@ -80,25 +80,23 @@ export default function Categories() {
       >
         {categories.map((category, index) => {
           let isActive = category.id == activeCategory;
-          let btnClass = isActive ? " bg-gray-400" : " bg-gray-200";
+          let btnClass = isActive ? " bg-[#ff9431]" : " bg-white";
           let textClass = isActive
-            ? " font-semibold text-gray-700"
-            : " text-gray-500";
+            ? " text-white"
+            : " text-black";
 
           return (
-            <View key={index} className="flex justify-center items-center mr-6">
-              <TouchableOpacity
-                onPress={() => setActiveCategory(category.id)}
-                className={"p-1 rounded-full shadow bg-gray-200" + btnClass}
-              >
+            <TouchableOpacity
+              key={index}
+              onPress={() => setActiveCategory(category.id)}
+              className={"flex flex-row justify-center items-center mr-6 p-2 pr-4 border-2 rounded-xl border-[#ff9431] space-x-3" + btnClass}>
                 <Image
-                  style={{ width: 45, height: 45 }}
+                  style={{ width: 30, height: 30 }}
                   source={category.image}
-                  className="rounded-3xl"
+                  className="rounded-3xl bg-white"
                 />
-              </TouchableOpacity>
-              <Text className={"text-sm" + textClass}>{category.name}</Text>
-            </View>
+              <Text className={"text-base font-bold" + textClass}>{category.name}</Text>
+            </TouchableOpacity>
           );
         })}
       </ScrollView>

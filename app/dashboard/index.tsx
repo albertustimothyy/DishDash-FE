@@ -2,11 +2,13 @@ import { TextInput, View, Text, ScrollView, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useState } from "react";
 import Categories from "../../components/categories";
+import Foods from "../../components/foods";
 import { Ionicons, MaterialIcons, Feather } from '@expo/vector-icons';
 
 
 export default function Dashboard() {
     const [search, setSearch] = useState("");
+    const [activeCategory, setActiveCategory] = useState<number | null>(null);
 
     return (
         <SafeAreaView className="bg-white">
@@ -44,10 +46,19 @@ export default function Dashboard() {
                 showsHorizontalScrollIndicator={false}
                 contentContainerStyle={{
                     paddingBottom: 20,
-                }}
-            >
+                }}>
                 <Categories />
             </ScrollView>
+            </View>
+            <View>
+                <Text  className="px-4 text-lg font-semibold">Foods</Text>
+                <ScrollView
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{
+                    paddingBottom: 20,
+                }}>
+                <Foods activeCategory={activeCategory} />
+                </ScrollView>
             </View>
         </SafeAreaView>
     );

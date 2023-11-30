@@ -1,11 +1,6 @@
 import { useState } from "react";
 import { ScrollView, TouchableOpacity, View, Text, Image } from "react-native";
 
-interface Category {
-  id: number;
-  name: string;
-  image: any;
-}
 
 const categories = [
   {

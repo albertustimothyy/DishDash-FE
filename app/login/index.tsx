@@ -16,7 +16,7 @@ export default function Login() {
  const switchToSignup = () => setActiveTab("signup");
  return (
    <View className="flex items-center justify-center bg-[#f2f2f2]">
-     <View className="top-0 w-full h-64 items-center justify-center bg-white rounded-b-[30px]">
+     <View className="top-0 w-full h-64 items-center justify-center bg-white rounded-b-[30px] shadow-xl shadow-black">
        <Image className="" source={require("../../assets/log2.png")} />
        <View className="absolute bottom-0 flex flex-row space-x-16">
          <TouchableOpacity

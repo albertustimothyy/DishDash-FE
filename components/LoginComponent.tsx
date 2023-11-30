@@ -6,20 +6,22 @@ export default function LoginComponent() {
  const [email, setEmail] = useState("");
  const [password, setPassword] = useState("");
  return (
-   <View className='flex justify-center w-full p-10 space-y-4'>
-     <View className="w-full h-[45px] mb-[20px] border-b-2">
-       <Text className='font-semibold text-[#919191]'>Email address</Text>
+   <View className='flex justify-center items-center w-full p-10 py-16 space-y-4'>
+     <View className="w-full h-[60px] mb-[20px] border-b-2">
+       <Text className='font-semibold text-lg'>Email address</Text>
        <TextInput
-         className="h-50 flex-1 items-center"
+         className="h-50 flex-1 items-center text-lg"
          placeholder="Enter Your Email"
+         placeholderTextColor="#919191"
          onChangeText={(email) => setEmail(email)}
        /> 
      </View> 
-     <View className="w-full h-[45px] mb-[20px] border-b-2">
-       <Text className='font-semibold text-[#919191]'>Password</Text>
+     <View className="w-full h-[60px] mb-[20px] border-b-2">
+       <Text className='font-semiboldtext-lg'>Password</Text>
        <TextInput
-         className="h-50 flex-1 items-center"
+         className="h-50 flex-1 items-center text-lg"
          placeholder="Enter Your Password"
+         placeholderTextColor="#919191"
          secureTextEntry={true}
          onChangeText={(password) => setPassword(password)}
        /> 

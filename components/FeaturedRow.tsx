@@ -5,7 +5,7 @@ import RecipesCard from "./RecipesCard";
 
 export default function FeaturedRow({
   title,
-  description,
+  recipes,
   restaurants,
   search,
 }) {

@@ -2,6 +2,7 @@ import { TextInput, View, Text, ScrollView, Image, StyleSheet } from "react-nati
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useState } from "react";
 import Categories from "../../components/categories";
+import Foods from "../../components/foods";
 import { Ionicons, MaterialIcons, Feather } from '@expo/vector-icons';
 import RecipesCard from "../../components/RecipesCard";
 
@@ -82,6 +83,7 @@ const data: RecipeItem[] = [
 
 export default function Dashboard() {
     const [search, setSearch] = useState("");
+    const [activeCategory, setActiveCategory] = useState<number | null>(null);
 
     return (
         <SafeAreaView className="bg-white">

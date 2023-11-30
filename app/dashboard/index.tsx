@@ -135,22 +135,3 @@ export default function Dashboard() {
         </SafeAreaView>
     );
 }
-
-const styles = StyleSheet.create( {
-  app: {
-    flex: 4, // the number of columns you want to devide the screen into
-    marginHorizontal: "auto",
-    width: 400
-  },
-  item: {
-    flex: 1,
-    maxWidth: "25%", // 100% devided by the number of rows you want
-    alignItems: "center",
-    
-    // my visual styles; not important for the grid
-    padding: 10,
-    backgroundColor: "rgba(249, 180, 45, 0.25)",
-    borderWidth: 1.5,
-    borderColor: "#fff"
-  }
-});

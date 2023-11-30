@@ -8,7 +8,7 @@ interface RecipeItem {
   recipe: string;
   price: number;
   rating: number;
-  image: string;
+  image: any;
 }
 
 // Prop interface for the RecipesCard component
@@ -22,25 +22,27 @@ const RecipesCard: React.FC<RecipesCardProps> = ({ item }) => {
     <TouchableWithoutFeedback
     //   onPress={() => navigation.navigate("Restaurant", { ...item })}
     >
-      <View className="w-2/5 h-44 mx-4 mb-4 p-3 bg-white rounded-3xl shadow-xl shadow-black " >
+      <View className="w-2/5 h-52 mx-4 mb-4 p-3 bg-white rounded-3xl shadow-xl shadow-black " >
         <View className="flex-row items-center space-x-0.5">
             <Image
               source={require("../assets/star.png")}
               className="h-5 w-5"
             />
-            <Text className="">{item.rating}</Text>
+            <Text className="text-xs">{item.rating}</Text>
         </View>
-        {/* <Image className="h-36 w-64 rounded-t-3xl" source={{ uri: item.image }} /> */}
-        <View className="px-1 pb-3 space-y-2">
-          <Text className="text-base font-bold pt-2">{item.name}</Text>
+        <View className="flex items-center pt-2">
+          <Image className="h-20 w-28 rounded-lg" source={item.image} />
+        </View>
+        <View className="px-1 pb-2">
+          <Text className="text-xs font-semibold pt-2">{item.name}</Text>
           <View className="flex-row items-center space-x-1">
-            <Text className="text-gray-700 text-xs text-justify">
+            <Text className="text-gray-700 text-[10px] text-justify">
               {item.recipe.length > 30 ? `${item.recipe.substring(0, 30)}...` : item.recipe}
             </Text>
           </View>
         </View>
-          <Text className="absolute left-4 bottom-2 text-lg font-semibold text-[#ff9431]">Rp {item.price}</Text>
-        <View className="absolute right-4 bottom-2">
+        <View className="flex-row items-center justify-between px-1">
+          <Text className="text-[15px] font-semibold text-[#ff9431]">Rp {item.price}</Text>
           <AntDesign name="pluscircle" size={24} color="#ff9431" />
         </View>
       </View>

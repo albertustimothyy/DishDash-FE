@@ -10,8 +10,9 @@ export default function _layout() {
               navigationBarHidden: true,
               headerShown: false,
           }} />
-          <Stack.Screen name="dashboard/index" options={{
-              title: 'Dashboard',
+          <Stack.Screen name="(dashboard)" options={{
+              title: 'dashboard',
+              navigationBarHidden: true,
               headerShown: false,
           }} />
       </Stack>

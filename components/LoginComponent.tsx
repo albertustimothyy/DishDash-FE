@@ -17,7 +17,7 @@ export default function LoginComponent() {
        /> 
      </View> 
      <View className="w-full h-[60px] mb-[20px] border-b-2">
-       <Text className='font-semiboldtext-lg'>Password</Text>
+       <Text className='font-semibold text-lg'>Password</Text>
        <TextInput
          className="h-50 flex-1 items-center text-lg"
          placeholder="Enter Your Password"
@@ -27,7 +27,7 @@ export default function LoginComponent() {
        /> 
      </View> 
      <View className='flex justify-center items-center w-full pt-3'>
-       <Link href="/dashboard/" asChild>
+       <Link href="/shopping/" asChild>
          <TouchableOpacity className="bg-[#ff9432] rounded-3xl h-14 w-4/5 mt-10 items-center justify-center">
            <Text className='font-semibold text-white text-lg'>Login</Text> 
          </TouchableOpacity> 

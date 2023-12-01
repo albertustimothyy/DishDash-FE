@@ -95,11 +95,11 @@ export default function Categories() {
               className={`flex flex-row justify-center items-center mr-6 p-2 pr-4 border-2 rounded-xl border-[#ff9431] space-x-3 ${btnClass}`}
             >
               <Image
-                style={{ width: 30, height: 30 }}
+                style={{ width: 25, height: 25 }}
                 source={category.image}
                 className="bg-white rounded-3xl"
               />
-              <Text className={`text-base font-bold ${textClass}`}>{category.name}</Text>
+              <Text className={`text-sm font-bold ${textClass}`}>{category.name}</Text>
             </TouchableOpacity>
           );
         })}

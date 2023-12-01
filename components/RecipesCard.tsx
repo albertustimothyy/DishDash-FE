@@ -21,8 +21,9 @@ const RecipesCard: React.FC<RecipesCardProps> = ({ item }) => {
   return (
     <TouchableWithoutFeedback
     //   onPress={() => navigation.navigate("Restaurant", { ...item })}
+    
     >
-      <View className="w-2/5 h-52 mx-4 mb-4 p-3 bg-white rounded-3xl shadow-xl shadow-black " >
+      <View className="w-2/5 h-64 mx-2 mb-4 p-3 bg-white rounded-3xl shadow-xl shadow-black " >
         <View className="flex-row items-center space-x-0.5">
             <Image
               source={require("../assets/star.png")}
@@ -31,7 +32,7 @@ const RecipesCard: React.FC<RecipesCardProps> = ({ item }) => {
             <Text className="text-xs">{item.rating}</Text>
         </View>
         <View className="flex items-center pt-2">
-          <Image className="h-20 w-28 rounded-lg" source={item.image} />
+          <Image className="h-32 w-28 rounded-lg" source={item.image} />
         </View>
         <View className="px-1 pb-2">
           <Text className="text-xs font-semibold pt-2">{item.name}</Text>

@@ -8,6 +8,7 @@ import {
  TouchableOpacity,
 } from "react-native";
 import LoginComponent from "../../components/LoginComponent";
+import SignUpComponent from "../../components/SignUpComponent";
 
 export default function Login() {
  const [activeTab, setActiveTab] = useState("login");
@@ -43,6 +44,9 @@ export default function Login() {
      <StatusBar style="auto" />
      {activeTab === "login" && (
        <LoginComponent />
+     )}
+     {activeTab === "signup" && (
+       <SignUpComponent />
      )}
    </View> 
  );

@@ -77,14 +77,13 @@ export default function SignUpComponent() {
                  </View>
      </View> 
      <View className='flex justify-center items-center w-full pt-3'>
-       <Link href="/shopping/" asChild>
+       <Link href="/otp/" asChild>
          <TouchableOpacity className="bg-[#ff9432] rounded-3xl h-14 w-4/5 mt-10 items-center justify-center">
            <Text className='font-semibold text-white text-lg'>Sign Up</Text> 
          </TouchableOpacity> 
        </Link>
              </View>
                 <View className='h-40 w-full'>
-                    
              </View>
      </View>
      </ScrollView>

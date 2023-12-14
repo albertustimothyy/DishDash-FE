@@ -20,6 +20,11 @@ export default function _layout() {
                 navigationBarHidden: true,
                 headerShown: false,
             }} />
+            <Stack.Screen name="recipePage/index" options={{
+                title: 'recipe-page',
+                navigationBarHidden: false,
+                headerShown: false,
+            }} />
         </Stack>
     )
 }

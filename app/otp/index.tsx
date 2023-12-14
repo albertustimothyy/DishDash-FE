@@ -13,6 +13,7 @@ import OTPTextInput from "react-native-otp-textinput";
 // import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { Link } from 'expo-router';
+import LottieView from "lottie-react-native";
 
 
 const { width, height } = Dimensions.get("window");
@@ -30,14 +31,13 @@ const otp = () => {
         <ScrollView>
 
             <SafeAreaView className="flex-1">
-                <View className="flex justify-center items-center m-10">
-                    {/* <Lottie
-                    style={[{ width: '80%', aspectRatio: 1 }]}
-                    autoPlay
-                    loop
-                    source={require('../../assets/otp.json')}
-                /> */}
-                    <Image source={require("../../assets/OTP.png")} />
+                <View className="flex justify-center items-center bg-[#fff6eb] rounded-full m-10">
+                    <LottieView
+                        style={[{ width: '80%', aspectRatio: 1 }]}
+                        autoPlay
+                        loop
+                        source={require('../../assets/otp.json')}
+                    />
                 </View>
                 <View className="flex items-center space-y-4" >
                     <Text className="text-center text-3xl font-bold" >

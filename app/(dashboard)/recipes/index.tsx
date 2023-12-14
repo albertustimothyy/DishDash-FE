@@ -12,6 +12,9 @@ interface RecipesItem {
   desc: string;
   duration: number;
   image: any;
+  ingredients: { ingredient: string; amount: string }[];
+  method: string[];
+  reviews: number;
 }
 
 const data: RecipesItem[] = [
@@ -20,56 +23,120 @@ const data: RecipesItem[] = [
     desc: "Classic Italian dish with meat sauce.",
     duration: 30,
     image: require("../../../assets/images/dishes/burger-1.jpg"),
+    ingredients: [
+      { ingredient: "Spaghetti", amount: "200g" },
+      { ingredient: "Ground Beef", amount: "300g" },
+      { ingredient: "Tomato Sauce", amount: "1 cup" },
+    ],
+    method: ["Boil spaghetti", "Cook ground beef", "Mix with tomato sauce"],
+    reviews: 4.8,
   },
   {
     name: "Chicken Alfredo",
     desc: "Creamy pasta with grilled chicken.",
     duration: 25,
     image: require("../../../assets/images/dishes/burger-1.jpg"),
+    ingredients: [
+      { ingredient: "Fettuccine", amount: "250g" },
+      { ingredient: "Grilled Chicken", amount: "200g" },
+      { ingredient: "Alfredo Sauce", amount: "1 cup" },
+    ],
+    method: ["Boil fettuccine", "Grill chicken", "Mix with Alfredo sauce"],
+    reviews: 4.5,
   },
   {
     name: "Vegetarian Stir-Fry",
     desc: "Colorful stir-fried vegetables with tofu.",
     duration: 20,
     image: require("../../../assets/images/dishes/burger-1.jpg"),
+    ingredients: [
+      { ingredient: "Tofu", amount: "150g" },
+      { ingredient: "Broccoli", amount: "1 cup" },
+      { ingredient: "Bell Peppers", amount: "1 cup" },
+    ],
+    method: ["Stir-fry tofu and vegetables"],
+    reviews: 4.2,
   },
   {
     name: "Margherita Pizza",
     desc: "Simple pizza with tomato, mozzarella, and basil.",
-    duration: 35,
+    duration: 18,
     image: require("../../../assets/images/dishes/burger-1.jpg"),
+    ingredients: [
+      { ingredient: "Pizza Dough", amount: "1 ball" },
+      { ingredient: "Tomato Sauce", amount: "1/2 cup" },
+      { ingredient: "Mozzarella Cheese", amount: "150g" },
+    ],
+    method: ["Roll out dough", "Spread sauce and cheese", "Bake until golden"],
+    reviews: 4.6,
   },
   {
     name: "Lasagna",
     desc: "Layered pasta dish with meat sauce and cheese.",
     duration: 40,
     image: require("../../../assets/images/dishes/burger-1.jpg"),
+    ingredients: [
+      { ingredient: "Lasagna Noodles", amount: "9 sheets" },
+      { ingredient: "Ground Beef", amount: "500g" },
+      { ingredient: "Tomato Sauce", amount: "2 cups" },
+    ],
+    method: ["Boil noodles", "Cook beef", "Layer noodles, sauce, and cheese"],
+    reviews: 4.7,
   },
   {
     name: "Garlic Bread",
     desc: "Bread with a layer of garlic butter.",
-    duration: 15,
+    duration: 12,
     image: require("../../../assets/images/dishes/burger-1.jpg"),
+    ingredients: [
+      { ingredient: "French Bread", amount: "1 loaf" },
+      { ingredient: "Butter", amount: "1/2 cup" },
+      { ingredient: "Garlic", amount: "3 cloves" },
+    ],
+    method: ["Slice bread", "Mix garlic with butter", "Spread on bread and bake"],
+    reviews: 4.4,
   },
   {
     name: "Caesar Salad",
     desc: "Romaine lettuce with croutons, parmesan, and Caesar dressing.",
     duration: 15,
     image: require("../../../assets/images/dishes/burger-1.jpg"),
+    ingredients: [
+      { ingredient: "Romaine Lettuce", amount: "1 head" },
+      { ingredient: "Croutons", amount: "1 cup" },
+      { ingredient: "Parmesan Cheese", amount: "1/2 cup" },
+    ],
+    method: ["Toss lettuce with croutons, cheese, and dressing"],
+    reviews: 4.3,
   },
   {
     name: "Chocolate Cake",
     desc: "Rich, moist cake with chocolate frosting.",
-    duration: 50,
+    duration: 35,
     image: require("../../../assets/images/dishes/burger-1.jpg"),
+    ingredients: [
+      { ingredient: "All-Purpose Flour", amount: "2 cups" },
+      { ingredient: "Cocoa Powder", amount: "1/2 cup" },
+      { ingredient: "Butter", amount: "1 cup" },
+    ],
+    method: ["Mix ingredients", "Bake until done", "Frost with chocolate icing"],
+    reviews: 4.9,
   },
   {
     name: "Vanilla Ice Cream",
     desc: "Creamy ice cream with vanilla flavor.",
     duration: 10,
     image: require("../../../assets/images/dishes/burger-1.jpg"),
+    ingredients: [
+      { ingredient: "Heavy Cream", amount: "2 cups" },
+      { ingredient: "Sugar", amount: "3/4 cup" },
+      { ingredient: "Vanilla Extract", amount: "1 tablespoon" },
+    ],
+    method: ["Whip cream", "Add sugar and vanilla", "Freeze until set"],
+    reviews: 4.8,
   },
-  // Add more RecipeItem objects as needed
+  // Tambahkan data lainnya sesuai kebutuhan
+  // ...
 ];
 
 

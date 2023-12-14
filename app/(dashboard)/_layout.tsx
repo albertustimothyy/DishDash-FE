@@ -18,7 +18,6 @@ export default function AppLayout() {
                 <Ionicons name="ios-cart" size={30} color="#ff9431" />
                 <Text className='font-semibold text-[#ff9431]' style={{ fontSize: 10 }}>Shopping</Text>
               </View>
-
               :
               <View className='flex items-center justify-center'>
                 <View className='w-full h-1 rounded-b-lg' />

@@ -148,11 +148,6 @@ export default function Recipes() {
   return (
     <SafeAreaView className="bg-white">
       <View>
-        <View className="flex-row items-center px-6 pt-6 space-x-2">
-          {/* <MaterialCommunityIcons name="hand-wave" size={24} color="#ff9432" />
-          <Text className="text-lg font-semibold">Welcome, User!</Text>
-          <MaterialIcons name="arrow-drop-down" size={24} color="#ff9432" /> */}
-        </View>
         <View className="flex-row items-center px-4 pt-2">
           <Text className="w-2/3 text-3xl font-bold">
             Order Your Food Fast and Free
@@ -185,7 +180,6 @@ export default function Recipes() {
           <Text className="px-4 text-lg font-semibold">Recipes</Text>
           <Categories />
           <View className="flex-1 flex-row flex-wrap my-6 items-center justify-center">
-
             {data.map((recipe) => (
               <RecipesCard key={recipe.name} item={recipe} />
             ))}

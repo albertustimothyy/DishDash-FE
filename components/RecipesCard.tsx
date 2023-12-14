@@ -1,7 +1,7 @@
 import { View, Text, TouchableWithoutFeedback, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialIcons } from '@expo/vector-icons';
-import { Link } from 'expo-router';
+import { router, Link } from 'expo-router';
 
 // Define the interface for the expected shape of the item
 interface RecipesItem {

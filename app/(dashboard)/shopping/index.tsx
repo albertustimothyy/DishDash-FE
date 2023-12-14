@@ -125,7 +125,7 @@ export default function Shopping() {
         >
           <Text className="px-4 text-lg font-semibold">Categories</Text>
           <Categories />
-          <View className="flex-1 flex-row flex-wrap my-6 items-center justify-center">
+          <View className="flex-row flex-wrap items-center justify-center flex-1 my-6">
 
             {data.map((ingredients) => (
               <ShoppingCard key={ingredients.name} item={ingredients} />

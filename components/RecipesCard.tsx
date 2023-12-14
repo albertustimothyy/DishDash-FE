@@ -22,8 +22,8 @@ interface RecipesCardProps {
 const RecipesCard: React.FC<RecipesCardProps> = ({ item }) => {
     const navigation = useNavigation();
     return (
-        <View className="relative w-2/5 h-64 mx-2 mb-4 p-0 bg-white rounded-3xl shadow shadow-black justify-center overflow-hidden" >
-            <View className="w-full px-3 pt-2 bg-white rounded-b-3xl absolute top-0" style={{
+        <View className="relative justify-center w-2/5 h-64 p-0 mx-2 mb-4 overflow-hidden bg-white shadow rounded-3xl shadow-black" >
+            <View className="absolute top-0 w-full px-3 pt-2 bg-white rounded-b-3xl" style={{
                 shadowColor: '#000',
                 shadowOffset: { width: 1, height: 1 },
                 shadowOpacity: 0.4,
@@ -35,10 +35,10 @@ const RecipesCard: React.FC<RecipesCardProps> = ({ item }) => {
                     <Text className="text-xs text-[#ff9431] font-semibold">{item.duration} minutes</Text>
                 </View>
                 <View className="flex items-center pt-2">
-                    <Image className="h-32 w-32 rounded-lg" source={item.image} />
+                    <Image className="w-32 h-32 rounded-lg" source={item.image} />
                 </View>
                 <View className="px-1 pb-2">
-                    <Text className="text-xs font-semibold pt-2">{item.name}</Text>
+                    <Text className="pt-2 text-xs font-semibold">{item.name}</Text>
                     <View className="flex-row items-center space-x-1">
                         <Text className="text-gray-700 text-[10px] text-justify">
                             {item.desc.length > 30 ? `${item.desc.substring(0, 30)}...` : item.desc}
@@ -47,8 +47,8 @@ const RecipesCard: React.FC<RecipesCardProps> = ({ item }) => {
                 </View>
             </View>
             <Link href="/recipePage/" asChild>
-                <TouchableOpacity className="w-full p-2 absolute bottom-0">
-                    <Text className='text-sm font-semibold m-auto'>Details</Text>
+                <TouchableOpacity className="absolute bottom-0 w-full p-2">
+                    <Text className='m-auto text-sm font-semibold'>Details</Text>
                 </TouchableOpacity>
             </Link>
 

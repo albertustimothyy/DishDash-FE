@@ -1,17 +1,26 @@
 import { View, Image, Text, TouchableOpacity, Pressable } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { Link, useNavigation, useRouter, useLocalSearchParams } from "expo-router";
+import { Link, useLocalSearchParams } from "expo-router";
 import { AntDesign } from '@expo/vector-icons';
-import IngredientsComponent from '../../components/IngredientsComponent';
-import MethodComponent from '../../components/MethodComponent';
+import IngredientsComponent from '../../../../components/IngredientsComponent';
+import MethodComponent from '../../../../components/MethodComponent';
 import { Ionicons } from '@expo/vector-icons';
+import { RecipesData } from '..';
 
-const recipePage = () => {
+function getRecipeById(recipeId: string) {
+    const parsedRecipeId = typeof recipeId === 'string' ? parseInt(recipeId, 10) : recipeId;
+    return RecipesData.find(recipe => recipe.id === parsedRecipeId);
+}
+
+const Home = () => {
     const [activeTab, setActiveTab] = useState("ingredients");
     const [saved, setSaved] = useState(false);
     const switchToIngredients = () => setActiveTab("ingredients");
     const switchToMethod = () => setActiveTab("method");
+    const params = useLocalSearchParams();
+    const { id } = params;
+    const data = getRecipeById(id.toString());
     return (
         <SafeAreaView className='h-screen'>
             <View>
@@ -25,18 +34,18 @@ const recipePage = () => {
                             <Ionicons name="arrow-back-outline" size={32} color="black" />
                         </Link>
                     </Pressable>
-                    <Image source={require("../../assets/images/dishes/pizza-2.jpg")} className="w-full h-56" />
+                    <Image source={data?.image} className="w-full h-56" />
                 </View>
                 <View className='absolute top-52 h-14 w-full'>
                     <View className='flex flex-row bg-white w-2/5 h-full mx-auto shadow-lg rounded-xl items-center justify-between'>
                         <View className='flex items-center w-[45%] space-y-1'>
                             <AntDesign name="star" size={24} color="#fcd114" />
-                            <Text className='font-semibold text-xs text-gray-400'>4.0</Text>
+                            <Text className='font-semibold text-xs text-gray-400'>{data?.reviews}</Text>
                         </View>
                         <View className='bg-gray-300 h-full p-[1px]' />
                         <View className='flex items-center w-[45%] space-y-1'>
                             <AntDesign name="clockcircle" size={24} color="#ff9432" />
-                            <Text className='font-semibold text-xs text-gray-400'>300</Text>
+                            <Text className='font-semibold text-xs text-gray-400'>{data?.duration}</Text>
                         </View>
                     </View>
                 </View>
@@ -56,15 +65,23 @@ const recipePage = () => {
                             }`}>Method</Text>
                     </TouchableOpacity>
                 </View>
-                {activeTab === "ingredients" && (
-                    <IngredientsComponent />
-                )}
+                {activeTab === "ingredients" &&
+                    data?.ingredients.map((ingredientData, index) => (
+                        <IngredientsComponent
+                            key={index}
+                            ingredient={ingredientData.ingredient}
+                            amount={ingredientData.amount}
+                        />
+                    ))
+                }
                 {activeTab === "method" && (
-                    <MethodComponent />
-                )}
+                    <MethodComponent
+                        name={data?.name || 'Undefined'}
+                        method={data?.method || ['Undefined']}
+                    />)}
             </View>
         </SafeAreaView >
     )
 }
 
-export default recipePage
+export default Home

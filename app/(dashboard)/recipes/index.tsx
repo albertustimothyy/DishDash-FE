@@ -7,7 +7,8 @@ import { Ionicons, Feather } from '@expo/vector-icons';
 
 import RecipesCard from "../../../components/RecipesCard";
 
-interface RecipesItem {
+export interface RecipesItem {
+  id: number;
   name: string;
   desc: string;
   duration: number;
@@ -17,8 +18,9 @@ interface RecipesItem {
   reviews: number;
 }
 
-const data: RecipesItem[] = [
+export const RecipesData: RecipesItem[] = [
   {
+    id: 1,
     name: "Spaghetti Bolognese",
     desc: "Classic Italian dish with meat sauce.",
     duration: 30,
@@ -32,10 +34,11 @@ const data: RecipesItem[] = [
     reviews: 4.8,
   },
   {
+    id: 2,
     name: "Chicken Alfredo",
     desc: "Creamy pasta with grilled chicken.",
     duration: 25,
-    image: require("../../../assets/images/dishes/burger-1.jpg"),
+    image: require("../../../assets/images/dishes/burger-2.jpg"),
     ingredients: [
       { ingredient: "Fettuccine", amount: "250g" },
       { ingredient: "Grilled Chicken", amount: "200g" },
@@ -45,10 +48,11 @@ const data: RecipesItem[] = [
     reviews: 4.5,
   },
   {
+    id: 3,
     name: "Vegetarian Stir-Fry",
     desc: "Colorful stir-fried vegetables with tofu.",
     duration: 20,
-    image: require("../../../assets/images/dishes/burger-1.jpg"),
+    image: require("../../../assets/images/dishes/burger-3.jpg"),
     ingredients: [
       { ingredient: "Tofu", amount: "150g" },
       { ingredient: "Broccoli", amount: "1 cup" },
@@ -58,10 +62,11 @@ const data: RecipesItem[] = [
     reviews: 4.2,
   },
   {
+    id: 4,
     name: "Margherita Pizza",
     desc: "Simple pizza with tomato, mozzarella, and basil.",
     duration: 18,
-    image: require("../../../assets/images/dishes/burger-1.jpg"),
+    image: require("../../../assets/images/dishes/pizza-1.jpg"),
     ingredients: [
       { ingredient: "Pizza Dough", amount: "1 ball" },
       { ingredient: "Tomato Sauce", amount: "1/2 cup" },
@@ -71,10 +76,11 @@ const data: RecipesItem[] = [
     reviews: 4.6,
   },
   {
+    id: 5,
     name: "Lasagna",
     desc: "Layered pasta dish with meat sauce and cheese.",
     duration: 40,
-    image: require("../../../assets/images/dishes/burger-1.jpg"),
+    image: require("../../../assets/images/dishes/pizza-2.jpg"),
     ingredients: [
       { ingredient: "Lasagna Noodles", amount: "9 sheets" },
       { ingredient: "Ground Beef", amount: "500g" },
@@ -84,10 +90,11 @@ const data: RecipesItem[] = [
     reviews: 4.7,
   },
   {
+    id: 6,
     name: "Garlic Bread",
     desc: "Bread with a layer of garlic butter.",
     duration: 12,
-    image: require("../../../assets/images/dishes/burger-1.jpg"),
+    image: require("../../../assets/images/dishes/pizza-3.jpg"),
     ingredients: [
       { ingredient: "French Bread", amount: "1 loaf" },
       { ingredient: "Butter", amount: "1/2 cup" },
@@ -97,6 +104,7 @@ const data: RecipesItem[] = [
     reviews: 4.4,
   },
   {
+    id: 7,
     name: "Caesar Salad",
     desc: "Romaine lettuce with croutons, parmesan, and Caesar dressing.",
     duration: 15,
@@ -110,6 +118,7 @@ const data: RecipesItem[] = [
     reviews: 4.3,
   },
   {
+    id: 8,
     name: "Chocolate Cake",
     desc: "Rich, moist cake with chocolate frosting.",
     duration: 35,
@@ -123,6 +132,7 @@ const data: RecipesItem[] = [
     reviews: 4.9,
   },
   {
+    id: 9,
     name: "Vanilla Ice Cream",
     desc: "Creamy ice cream with vanilla flavor.",
     duration: 10,
@@ -135,10 +145,8 @@ const data: RecipesItem[] = [
     method: ["Whip cream", "Add sugar and vanilla", "Freeze until set"],
     reviews: 4.8,
   },
-  // Tambahkan data lainnya sesuai kebutuhan
-  // ...
+  // Add more items with unique ids as needed
 ];
-
 
 
 export default function Recipes() {
@@ -180,7 +188,7 @@ export default function Recipes() {
           <Text className="px-4 text-lg font-semibold">Recipes</Text>
           <Categories />
           <View className="flex-1 flex-row flex-wrap my-6 items-center justify-center">
-            {data.map((recipe) => (
+            {RecipesData.map((recipe) => (
               <RecipesCard key={recipe.name} item={recipe} />
             ))}
           </View>

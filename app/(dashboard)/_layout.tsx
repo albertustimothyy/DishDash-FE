@@ -72,6 +72,16 @@ export default function AppLayout() {
           </View>
         )
       }} />
+      <Tabs.Screen name="recipes/[id]/index" options={{
+        tabBarShowLabel: false,
+        headerShown: false,
+        href: null,
+      }} />
+      <Tabs.Screen name="shopping/[id]/index" options={{
+        tabBarShowLabel: false,
+        headerShown: false,
+        href: null,
+      }} />
     </Tabs>
 
   );

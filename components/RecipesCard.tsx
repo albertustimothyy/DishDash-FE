@@ -2,17 +2,7 @@ import { View, Text, TouchableWithoutFeedback, Image, TouchableOpacity } from "r
 import { useNavigation } from "@react-navigation/native";
 import { MaterialIcons } from '@expo/vector-icons';
 import { router, Link } from 'expo-router';
-
-// Define the interface for the expected shape of the item
-interface RecipesItem {
-    name: string;
-    desc: string;
-    duration: number;
-    image: any;
-    ingredients: { ingredient: string; amount: string }[];
-    method: string[];
-    reviews: number;
-}
+import { RecipesItem } from "../app/(dashboard)/recipes";
 
 // Prop interface for the RecipesCard component
 interface RecipesCardProps {
@@ -46,12 +36,11 @@ const RecipesCard: React.FC<RecipesCardProps> = ({ item }) => {
                     </View>
                 </View>
             </View>
-            <Link href="/recipePage/" asChild>
-                <TouchableOpacity className="absolute bottom-0 w-full p-2">
+            <Link href={{ pathname: "(dashboard)/recipes/[id]", params: { id: item.id } }} asChild>
+                <TouchableOpacity className="absolute bottom-0 w-full p-2" >
                     <Text className='m-auto text-sm font-semibold'>Details</Text>
                 </TouchableOpacity>
             </Link>
-
         </View>
     );
 }

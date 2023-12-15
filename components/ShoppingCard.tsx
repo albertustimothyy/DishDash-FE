@@ -1,29 +1,23 @@
-import { View, Text, TouchableWithoutFeedback, Image } from "react-native";
+import { View, Text, TouchableWithoutFeedback, Image, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from '@expo/vector-icons';
-
-// Define the interface for the expected shape of the item
-interface IngredientItem {
-  name: string;
-  desc: string;
-  price: number;
-  rating: number;
-  image: any;
-}
+import { ingredientsItem } from "../app/(dashboard)/shopping";
+import { Link } from "expo-router";
 
 // Prop interface for the RecipesCard component
 interface ShoppingCardProps {
-  item: IngredientItem;
+  item: ingredientsItem;
 }
 
 const ShoppingCard: React.FC<ShoppingCardProps> = ({ item }) => {
   const navigation = useNavigation();
   return (
-    <TouchableWithoutFeedback
-    //   onPress={() => navigation.navigate("Restaurant", { ...item })}
-
-    >
-      <View className="w-2/5 h-64 mx-2 mb-4 p-3 bg-white rounded-3xl shadow-xl shadow-black " >
+    // @ts-ignore
+    <Link href={{
+      pathname: "(dashboard)/shopping/[id]",
+      params: { id: item.id },
+    }} asChild>
+      <Pressable className="w-2/5 h-64 mx-2 mb-4 p-3 bg-white rounded-3xl shadow-xl shadow-black " >
         <View className="flex-row items-center space-x-0.5">
           <Image
             source={require("../assets/star.png")}
@@ -43,11 +37,16 @@ const ShoppingCard: React.FC<ShoppingCardProps> = ({ item }) => {
           </View>
         </View>
         <View className="flex-row items-center justify-between px-1">
-          <Text className="text-[15px] font-semibold text-[#ff9431]">Rp {item.price}</Text>
+          <Text className="text-[11px] font-semibold text-[#ff9431]">
+            {new Intl.NumberFormat("id", {
+              style: "currency",
+              currency: "IDR",
+            }).format(item?.price || 0)}
+          </Text>
           <AntDesign name="pluscircle" size={24} color="#ff9431" />
         </View>
-      </View>
-    </TouchableWithoutFeedback>
+      </Pressable>
+    </Link>
   );
 }
 

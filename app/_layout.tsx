@@ -15,6 +15,22 @@ export default function _layout() {
                 navigationBarHidden: true,
                 headerShown: false,
             }} />
+
+            <Stack.Screen name="order/index" options={{
+                title: 'order',
+                navigationBarHidden: true,
+                headerShown: false,
+            }} />
+            <Stack.Screen name="preparingScreen/index" options={{
+                title: 'preparingScreen',
+                navigationBarHidden: true,
+                headerShown: false,
+            }} />
+            <Stack.Screen name="deliveryScreen/index" options={{
+                title: 'deliveryScreen',
+                navigationBarHidden: true,
+                headerShown: false,
+            }} />
             <Stack.Screen name="(dashboard)" options={{
                 title: 'dashboard',
                 navigationBarHidden: true,

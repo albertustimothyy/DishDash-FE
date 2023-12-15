@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
+import { View, Text, ScrollView, Image, TouchableOpacity, ToastAndroid } from "react-native";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { Ionicons } from '@expo/vector-icons';
 import { Link, useLocalSearchParams } from "expo-router";
@@ -19,9 +19,20 @@ const Home = () => {
     const params = useLocalSearchParams();
     const { id } = params;
     const data = getIngredientById(id.toString());
+    const showToast = () => {
+        ToastAndroid.show('A pikachu appeared nearby !', ToastAndroid.SHORT);
+    };
+
+    const showToastWithGravity = () => {
+        ToastAndroid.showWithGravity(
+            'Successfully added to cart',
+            ToastAndroid.SHORT,
+            ToastAndroid.CENTER,
+        );
+    };
     return (
         <SafeAreaView>
-            <CartContainer />
+            {/* <CartContainer /> */}
             <View className="relative h-full">
                 <View className="bg-[#ff9432] pb-11">
                     <TouchableOpacity className='absolute left-2 top-2 p-1 bg-white z-10 rounded-full'>
@@ -77,7 +88,7 @@ const Home = () => {
                 </ScrollView>
                 <View className="bg-white absolute bottom-0 p-3 pb-5 w-full z-10">
                     <Link href="/(dashboard)/shopping" asChild>
-                        <TouchableOpacity className="bg-[#ff9432] w-4/5 mx-auto py-3 rounded-2xl">
+                        <TouchableOpacity className="bg-[#ff9432] w-4/5 mx-auto py-3 rounded-2xl" onPress={() => showToastWithGravity()}>
                             <Text className="text-white text-center text-xl font-semibold">Add to Cart</Text>
                         </TouchableOpacity>
                     </Link>

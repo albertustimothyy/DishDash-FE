@@ -11,7 +11,6 @@ const CartContainer = () => {
                 <View>
                     <Text className='text-white font-bold'>1 item</Text>
                     <Text className='text-white text-xs'>Added to Your Cart</Text>
-
                 </View>
                 <View className='flex-row items-center gap-2'>
                     <Text className='text-white font-bold'>
